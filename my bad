@@ -1,1 +1,166 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#10091c">
+<title>GR4X PRO</title>
+<style>
+:root{--bg:#090711;--panel:#171124;--panel2:#211832;--purple:#a66cff;--pink:#e05cff;--text:#f7f1ff;--muted:#b8a9cc;--line:#3a2853;--green:#43d69a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#281344 0%,#10091c 48%,#07060c 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+button,input{font:inherit}
+.wrap{width:min(100%,620px);margin:auto;padding:22px 16px 40px}
+.brand{text-align:center;padding:16px 8px 22px}
+.logo{width:76px;height:76px;margin:0 auto 10px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#c26bff,#5421a0);box-shadow:0 0 35px #9a4cff55;font-size:34px;font-weight:950;letter-spacing:-3px}
+h1{font-size:34px;letter-spacing:3px;margin:0;color:#d8b6ff;text-shadow:0 0 18px #a66cff66}
+.subtitle{font-size:11px;letter-spacing:3px;color:var(--muted);margin-top:5px}
+.card{background:linear-gradient(160deg,#211832ee,#120d1eee);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 16px 45px #0007;margin:14px 0}
+h2{font-size:18px;margin:0 0 14px}
+label{display:block;color:var(--muted);font-size:13px;margin:12px 0 7px}
+input{width:100%;background:#0c0814;color:white;border:1px solid #493466;border-radius:12px;padding:14px;outline:none}
+input:focus{border-color:var(--purple);box-shadow:0 0 0 3px #a66cff22}
+.btn{width:100%;border:0;border-radius:13px;padding:14px 16px;font-weight:800;color:white;background:linear-gradient(100deg,#7c35d4,#bb54e9);box-shadow:0 7px 22px #8b42d344;cursor:pointer;margin-top:14px}
+.btn.secondary{background:#2b203c;border:1px solid #563d76;box-shadow:none}
+.btn.danger{background:#42213e;border:1px solid #8a3e83;box-shadow:none}
+.note{font-size:12px;line-height:1.5;color:var(--muted)}
+.status{padding:11px;border-radius:11px;background:#0d0a15;margin-top:12px;font-size:13px;display:none}
+.status.ok{display:block;color:var(--green);border:1px solid #28664f}
+.status.bad{display:block;color:#ff8d9b;border:1px solid #713445}
+.hidden{display:none!important}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.pill{font-size:11px;border:1px solid #4c3970;border-radius:99px;padding:6px 10px;color:#d8c4f4;background:#261a38}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.tab{border:1px solid #493466;border-radius:11px;background:#181124;color:#cdbce2;padding:12px 5px;font-weight:750}
+.tab.active{background:linear-gradient(120deg,#6e32b5,#a34bd1);color:white;border-color:#bd82ff}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #352543}
+.row:last-child{border-bottom:0}
+.row small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.toggle{appearance:none;width:46px;height:26px;border-radius:30px;background:#453b50;position:relative;cursor:pointer;flex:none;transition:.2s}
+.toggle:before{content:"";position:absolute;width:20px;height:20px;top:3px;left:3px;border-radius:50%;background:#eee;transition:.2s}
+.toggle:checked{background:#8745c7}
+.toggle:checked:before{left:23px;background:white}
+.panel-head{text-align:center;padding:8px 0 14px}
+.panel-head strong{font-size:25px;letter-spacing:4px;color:#d6b1ff}
+.hint{text-align:center;color:var(--muted);font-size:12px;margin-top:10px}
+.footer{text-align:center;color:#796b8b;font-size:11px;padding:18px 8px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#261a38;border:1px solid #694a91;border-radius:12px;padding:12px 16px;box-shadow:0 10px 30px #0009;max-width:90%;font-size:13px;z-index:5}
+@media(min-width:500px){.wrap{padding-top:36px}.card{padding:24px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="brand">
+    <div class="logo">G4</div>
+    <h1>GR4X PRO</h1>
+    <div class="subtitle">ANDROID • PAINEL VISUAL</div>
+  </header>
+
+  <section class="card" id="loginCard">
+    <h2>🔐 Login de acesso</h2>
+    <label for="keyInput">Sua KEY de demonstração</label>
+    <input id="keyInput" autocomplete="off" autocapitalize="characters" placeholder="Digite sua KEY">
+    <button class="btn" id="loginBtn">ENTRAR</button>
+    <div id="loginStatus" class="status" role="status"></div>
+    <p class="note">Keys de demonstração aceitas neste arquivo: <b>M8-AX7K92</b>, <b>A8-XP4M21</b>, <b>X8-AB6K35</b>, <b>K8-AX9P42</b>, <b>R8-MX3A71</b>, <b>P8-AX5N84</b>, <b>T8-KA7X26</b>, <b>B8-XA2M93</b>, <b>N8-AP4X67</b> e <b>Z8-AX6K18</b>.</p>
+  </section>
+
+  <section class="card hidden" id="panelCard">
+    <div class="topline">
+      <span class="pill">● CONECTADO</span>
+      <span class="pill">VERSÃO 6.0 VISUAL</span>
+    </div>
+    <div class="panel-head">
+      <strong>GR4X</strong>
+      <div class="subtitle">PAINEL PRINCIPAL</div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Seções do painel">
+      <button class="tab active" data-tab="mira">MIRA</button>
+      <button class="tab" data-tab="esp">ESP</button>
+      <button class="tab" data-tab="visual">VISUAL</button>
+    </div>
+
+    <div class="tab-content" id="mira">
+      <h2>🎯 Configurações de demonstração</h2>
+      <div class="row"><div>Emote cabeça<small>Opção ilustrativa</small></div><input class="toggle" type="checkbox" aria-label="Emote cabeça"></div>
+      <div class="row"><div>Emote peito<small>Opção ilustrativa</small></div><input class="toggle" type="checkbox" aria-label="Emote peito"></div>
+      <div class="row"><div>Emote pescoço<small>Opção ilustrativa</small></div><input class="toggle" type="checkbox" aria-label="Emote pescoço"></div>
+      <div class="row"><div>Mira de demonstração<small>Não altera a mira do jogo</small></div><input class="toggle" type="checkbox" aria-label="Mira de demonstração"></div>
+    </div>
+
+    <div class="tab-content hidden" id="esp">
+      <h2>👁 ESP — interface demonstrativa</h2>
+      <div class="row"><div>ESP 9<small>Controle visual, sem dados da partida</small></div><input class="toggle" type="checkbox" aria-label="ESP 9"></div>
+      <div class="row"><div>ESP Box<small>Controle visual, sem rastreamento</small></div><input class="toggle" type="checkbox" aria-label="ESP Box"></div>
+      <div class="row"><div>ESP Vida<small>Não lê a vida de jogadores</small></div><input class="toggle" type="checkbox" aria-label="ESP Vida"></div>
+      <p class="note">Estas chaves apenas mudam a aparência dos controles. Não funcionam dentro do Free Fire nem revelam jogadores.</p>
+    </div>
+
+    <div class="tab-content hidden" id="visual">
+      <h2>✨ Aparência do painel</h2>
+      <div class="row"><div>Painel roxo<small>Tema principal</small></div><input class="toggle" type="checkbox" checked aria-label="Painel roxo"></div>
+      <div class="row"><div>Efeito mágico<small>Efeito visual da interface</small></div><input class="toggle" type="checkbox" aria-label="Efeito mágico"></div>
+      <div class="row"><div>Animação de abertura<small>Decoração da interface</small></div><input class="toggle" type="checkbox" aria-label="Animação de abertura"></div>
+      <div class="row"><div>Modo grandão<small>Layout ampliado</small></div><input class="toggle" type="checkbox" aria-label="Modo grandão"></div>
+    </div>
+
+    <button class="btn secondary" id="logoutBtn">SAIR DA CONTA</button>
+    <button class="btn danger" id="hidePanelBtn">ESCONDER PAINEL</button>
+    <p class="hint" id="tapHint">Toque três vezes na área do painel para esconder ou mostrar.</p>
+  </section>
+
+  <section class="card hidden" id="floatingCard">
+    <div class="topline"><strong>GR4X PRO</strong><span class="pill">FLUTUANTE</span></div>
+    <p class="note">Painel recolhido. Dê três toques na tela para abrir novamente.</p>
+    <button class="btn" id="showPanelBtn">ABRIR PAINEL</button>
+  </section>
+
+  <p class="footer">GR4X PRO • Arquivo HTML independente<br>Projeto visual demonstrativo. Não é um injetor, não oferece antiban e não modifica jogos.</p>
+</main>
+<div id="toast" class="toast hidden" role="status"></div>
+<script>
+(() => {
+  const validKeys = new Set(["M8-AX7K92","A8-XP4M21","X8-AB6K35","K8-AX9P42","R8-MX3A71","P8-AX5N84","T8-KA7X26","B8-XA2M93","N8-AP4X67","Z8-AX6K18"]);
+  const loginCard=document.getElementById("loginCard"), panelCard=document.getElementById("panelCard"), floatingCard=document.getElementById("floatingCard");
+  const keyInput=document.getElementById("keyInput"), loginStatus=document.getElementById("loginStatus"), toast=document.getElementById("toast");
+  let tapCount=0, tapTimer=null, loggedIn=false;
+  function notify(message){toast.textContent=message;toast.classList.remove("hidden");clearTimeout(notify.timer);notify.timer=setTimeout(()=>toast.classList.add("hidden"),2200);}
+  function showPanel(){panelCard.classList.remove("hidden");floatingCard.classList.add("hidden");}
+  function hidePanel(){panelCard.classList.add("hidden");floatingCard.classList.remove("hidden");}
+  document.getElementById("loginBtn").addEventListener("click",()=>{
+    const key=keyInput.value.trim().toUpperCase();
+    loginStatus.className="status";
+    if(validKeys.has(key)){
+      loggedIn=true;loginStatus.textContent="";loginCard.classList.add("hidden");showPanel();notify("Bem-vindo, Anderson!");
+    }else{
+      loginStatus.textContent="Essa KEY não é correta. Confira e tente novamente.";
+      loginStatus.className="status bad";
+    }
+  });
+  keyInput.addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("loginBtn").click();});
+  document.getElementById("logoutBtn").addEventListener("click",()=>{
+    loggedIn=false;panelCard.classList.add("hidden");floatingCard.classList.add("hidden");loginCard.classList.remove("hidden");keyInput.value="";loginStatus.className="status";notify("Você saiu do painel.");
+  });
+  document.getElementById("hidePanelBtn").addEventListener("click",hidePanel);
+  document.getElementById("showPanelBtn").addEventListener("click",showPanel);
+  document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{
+    document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b===btn));
+    document.querySelectorAll(".tab-content").forEach(c=>c.classList.toggle("hidden",c.id!==btn.dataset.tab));
+  }));
+  // Three deliberate taps toggle the panel only after login.
+  document.addEventListener("pointerdown",()=>{
+    if(!loggedIn)return;
+    tapCount++;
+    clearTimeout(tapTimer);
+    tapTimer=setTimeout(()=>tapCount=0,1000);
+    if(tapCount>=3){
+      tapCount=0;
+      if(panelCard.classList.contains("hidden"))showPanel();else hidePanel();
+      notify(panelCard.classList.contains("hidden")?"Painel escondido.":"Painel aberto.");
+    }
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
